@@ -1,2 +1,10 @@
-./flyable/Aircraft.java
-./flyable/Coordinates.java
+./srcs/flyable/Aircraft.java
+./srcs/flyable/AircraftFactory.java
+./srcs/flyable/Baloon.java
+./srcs/flyable/Coordinates.java
+./srcs/flyable/Flyable.java
+./srcs/flyable/Helicopter.java
+./srcs/flyable/JetPlane.java
+./srcs/tower/Tower.java
+./srcs/tower/WeatherTower.java
+./srcs/weatherprovider/WeatherProvider.java
