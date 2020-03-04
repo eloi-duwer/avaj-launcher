@@ -1,2 +1,2 @@
-find -name *.java > sources.txt
-javac @sources.txt
+find ./com -name "*.java" > sources.txt
+javac -sourcepath @sources.txt
