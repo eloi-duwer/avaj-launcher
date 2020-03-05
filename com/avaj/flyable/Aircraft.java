@@ -1,5 +1,7 @@
 package com.avaj.flyable;
 
+import com.avaj.coordinates.Coordinates;
+
 class Aircraft {
 	protected long id;
 	protected String name;

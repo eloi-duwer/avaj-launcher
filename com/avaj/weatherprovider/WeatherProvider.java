@@ -1,7 +1,7 @@
 package com.avaj.weatherprovider;
 
 import java.lang.Math;
-import com.avaj.flyable.Coordinates;
+import com.avaj.coordinates.Coordinates;
 
 public class WeatherProvider {
 	

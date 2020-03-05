@@ -1,8 +1,7 @@
 package com.avaj.tower;
 
 import com.avaj.weatherprovider.WeatherProvider;
-
-import com.avaj.flyable.Coordinates;
+import com.avaj.coordinates.Coordinates;
 
 public class WeatherTower extends Tower {
 	
@@ -10,7 +9,7 @@ public class WeatherTower extends Tower {
 		return WeatherProvider.getProvider().getCurrentWeather(coordinates);
 	}
 
-	void changeWeather() {
+	public void changeWeather() {
 		this.conditionsChanged();
 	}
 }

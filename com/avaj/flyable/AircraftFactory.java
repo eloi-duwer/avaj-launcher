@@ -1,11 +1,15 @@
 package com.avaj.flyable;
 
+import com.avaj.coordinates.Coordinates;
+
 public class AircraftFactory {
-	public Flyable newAircraft(String type,
-			String name,
-			int longitude,
-			int latitude,
-			int height) {
+	public Flyable newAircraft(
+		String type,
+		String name,
+		int longitude,
+		int latitude,
+		int height
+	) {
 		
 		Coordinates coords = new Coordinates(longitude, latitude, height);
 		switch (type) {
