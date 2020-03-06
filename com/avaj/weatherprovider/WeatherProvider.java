@@ -1,16 +1,14 @@
 package com.avaj.weatherprovider;
 
 import java.lang.Math;
-import com.avaj.coordinates.Coordinates;
+import com.avaj.flyable.Coordinates;
 
 public class WeatherProvider {
 	
 	private static WeatherProvider weatherprovider = null;
-	private static String[] weather;
+	private static String[] weather = {"RAIN", "FOG", "SUN", "SNOW"};
 
-	private WeatherProvider() {
-		this.weather = new String[] {"RAIN", "FOG", "SUN", "SNOW"};
-	}
+	private WeatherProvider() {}
 
 	public static WeatherProvider getProvider() {
 		if (weatherprovider == null)
@@ -19,8 +17,8 @@ public class WeatherProvider {
 	}
 
 	public String getCurrentWeather(Coordinates coordinates) {
-		return (WeatherProvider.weather[(Math.abs(coordinates.getLongitude() / 25)
-			+ Math.abs(coordinates.getLatitude() / 25)
-			+ Math.abs(coordinates.getHeight() / 10)) % 4]);
+		return (WeatherProvider.weather[(coordinates.getLongitude() / 25
+			+ coordinates.getLatitude() / 25
+			+ coordinates.getHeight() / 10) % 4]);
 	}
 }

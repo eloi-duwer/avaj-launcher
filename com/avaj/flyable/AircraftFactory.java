@@ -1,6 +1,8 @@
 package com.avaj.flyable;
 
-import com.avaj.coordinates.Coordinates;
+import com.avaj.exception.InvalidFileException;
+import com.avaj.exception.InvalidCoordException;
+import com.avaj.flyable.Coordinates;
 
 public class AircraftFactory {
 	public Flyable newAircraft(
@@ -9,7 +11,7 @@ public class AircraftFactory {
 		int longitude,
 		int latitude,
 		int height
-	) {
+	) throws InvalidFileException, InvalidCoordException {
 		
 		Coordinates coords = new Coordinates(longitude, latitude, height);
 		switch (type) {
@@ -20,7 +22,7 @@ public class AircraftFactory {
 			case "Baloon":
 				return new Baloon(name, coords);
 			default:
-				return null;
+				throw new InvalidFileException("Type " + type + " is not valid. List of valid types: JetPlane, Helicopter, Baloon");
 		}
 	}
 }

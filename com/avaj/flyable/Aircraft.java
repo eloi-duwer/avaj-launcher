@@ -1,12 +1,12 @@
 package com.avaj.flyable;
 
-import com.avaj.coordinates.Coordinates;
+import com.avaj.flyable.Coordinates;
 
 class Aircraft {
 	protected long id;
 	protected String name;
 	protected Coordinates coordinates;
-	static private long idCounter = 1;
+	static private long idCounter = 0;
 
 	protected Aircraft(String name, Coordinates coordinates) {
 		this.id = this.nextId();
@@ -15,6 +15,6 @@ class Aircraft {
 	}
 
 	private long nextId() {
-		return ++this.idCounter;
+		return ++Aircraft.idCounter;
 	}
 }
