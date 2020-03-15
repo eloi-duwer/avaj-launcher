@@ -2,6 +2,7 @@ package com.avaj.tower;
 
 import java.util.ArrayList;
 
+import com.avaj.exception.InvalidWeatherTypeException;
 import com.avaj.exception.InvalidCoordException;
 import com.avaj.flyable.Flyable;
 import com.avaj.logger.Logger;
@@ -24,7 +25,7 @@ class Tower {
 		Logger.log("Tower says: " + flyable.toString() + " unregistered from weather tower.");
 	}
 
-	protected void conditionsChanged() throws InvalidCoordException {
+	protected void conditionsChanged() throws InvalidWeatherTypeException, InvalidCoordException {
 		this.lstDel = new ArrayList<Flyable>();
 		for (Flyable observer : this.observers) {
 			observer.updateConditions();

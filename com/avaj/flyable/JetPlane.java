@@ -2,6 +2,7 @@ package com.avaj.flyable;
 
 import com.avaj.tower.WeatherTower;
 import com.avaj.exception.InvalidCoordException;
+import com.avaj.exception.InvalidWeatherTypeException;
 import com.avaj.flyable.Aircraft;
 import com.avaj.flyable.Coordinates;
 import com.avaj.logger.Logger;
@@ -40,7 +41,7 @@ class JetPlane extends Aircraft implements Flyable {
 		}
 	}
 
-	public void updateConditions() throws InvalidCoordException {
+	public void updateConditions() throws InvalidWeatherTypeException, InvalidCoordException {
 		String weather = weatherTower.getWeather(super.coordinates);
 		if (weather != this.currentWeather)
 			this.changeWeather(weather);
@@ -59,7 +60,7 @@ class JetPlane extends Aircraft implements Flyable {
 				newCoords = new Coordinates(super.coordinates.getLongitude(), super.coordinates.getLatitude(), super.coordinates.getHeight() - 7);
 				break;
 			default:
-				throw new Error("Weather type " + weather + " is unknown");
+				throw new InvalidWeatherTypeException("Weather type " + weather + " is unknown");
 		}
 		if (newCoords.getHeight() <= 0) {
 			Logger.log(this.toString() + ": Landing, pos: " + newCoords.toString());

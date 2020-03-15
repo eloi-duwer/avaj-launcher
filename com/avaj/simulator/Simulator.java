@@ -44,8 +44,10 @@ class Simulator {
 					longitude = Integer.parseInt(split[2]);
 					latitude = Integer.parseInt(split[3]);
 					height = Integer.parseInt(split[4]);
+					if (longitude < 0 || latitude < 0 || height < 0)
+						throw new NumberFormatException();
 				} catch(NumberFormatException e) {
-					throw new InvalidFileException("Longitude, latitude and height must be numbers");
+					throw new InvalidFileException("Error line "+ lineNumber + ": Longitude, latitude and height must be positive numbers");
 				}
 				Flyable plane = factory.newAircraft(split[0], split[1], longitude, latitude, height);
 				plane.registerTower(tower);
